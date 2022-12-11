@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+-->
+
+<project name="MyFaces Test Project">
+  <bannerLeft>
+    <name>Apache MyFaces</name>
+    <src>img/banners/MyFaces_logo.jpg</src>
+    <href>http://myfaces.apache.org/index.html</href>
+  </bannerLeft>
+
+  <bannerRight>
+    <name>Apache Banner</name>
+    <src>img/banners/apache_banner.png</src>
+    <href>http://www.apache.org</href>
+  </bannerRight>
+
+  <publishDate format="dd MMM yyyy" />
+
+  <skin>
+    <groupId>org.apache.myfaces.maven</groupId>
+    <artifactId>myfaces-site-skin</artifactId>
+    <version>3</version>
+  </skin>
+
+  <body>
+    <links>
+      <item name="Using It"      href="./usecase.html"/>
+      <item name="Examples"      href="./examples.html"/>
+      <item name="1.2 Javadocs"  href="./myfaces-test12/apidocs/index.html"/>
+      <item name="2.0 Javadocs"  href="./myfaces-test20/apidocs/index.html"/>
+      <item name="2.2 Javadocs"  href="./myfaces-test22/apidocs/index.html"/>
+      <item name="2.3 Javadocs"  href="./myfaces-test23/apidocs/index.html"/>
+      <item name="3.0 Javadocs"  href="./myfaces-test30/apidocs/index.html"/>
+      <item name="Download Myfaces Test" href="./download.html"/>
+      <item name="Apache" href="http://www.apache.org"/>
+      <item name="MyFaces" href="http://myfaces.apache.org/index.html"/>
+    </links>
+
+    <menu name="Apache MyFaces" inherit="top">
+      <item name="Overview"       href="http://myfaces.apache.org/index.html"/>
+      <item name="Download"       href="http://myfaces.apache.org/download.html"/>
+    </menu>
+
+    <menu name="MyFaces Projects" inherit="top">
+        <item name="Core JSF-2.1"   href="../core21/index.html" collapse="true">
+          <item name="dummy"        href="dummy"/>
+        </item>
+        <item name="Core JSF-2.0"   href="../core20/index.html" collapse="true">
+          <item name="dummy"        href="dummy"/>
+        </item>
+        <item name="Core JSF-1.2"   href="../core12/index.html" collapse="true">
+          <item name="dummy"        href="dummy"/>
+        </item>
+        <item name="Core JSF-1.1"   href="../core11/index.html" collapse="true">
+          <item name="dummy"        href="dummy"/>
+        </item>
+    </menu>
+
+    <menu name="UI-Component Sets" inherit="top">
+        <item name="Trinidad"       href="../trinidad/index.html"/>
+        <item name="Tobago"         href="../tobago/index.html"/>
+        <item name="Tomahawk"       href="../tomahawk/index.html" collapse="true">
+          <item name="dummy"        href="dummy"/>
+        </item>
+    </menu>
+
+    <menu name="Add-ons and Extensions" inherit="top">
+        <item name="CODI"           href="../extensions/cdi/index.html"/>
+        <item name="Orchestra"      href="../orchestra/index.html"/>
+        <item name="ExtVal"         href="../extensions/validator/index.html"/>
+        <item name="Portlet Bridge" href="../portlet-bridge/index.html"/>
+        <item name="Test"           href="../test/index.html" collapse="false">
+          <item name="Myfaces Test Framework for JSF 1.2 (and 1.1)" href="http://myfaces.apache.org/test/myfaces-test12/index.html"/>
+          <item name="Myfaces Test Framework for JSF 2.0"           href="http://myfaces.apache.org/test/myfaces-test20/index.html"/>
+        </item>
+        <item name="Commons"        href="../commons/index.html"/>
+        <item name="HTML5"          href="../html5/index.html"/>
+        <item name="Sandbox"        href="../sandbox/index.html" collapse="true">
+          <item name="dummy"        href="dummy"/>
+        </item>
+        <item name="Others"         href="../otherProjects.html"/>
+    </menu>
+
+    <menu name="Documentation" inherit="top">
+      <item name="About"         href="./index.html"/>
+      <item name="Using It"      href="./usecase.html"/>
+      <item name="Examples"      href="./examples.html"/>
+      <item name="1.2 Javadocs"  href="./myfaces-test12/apidocs/index.html"/>
+      <item name="2.0 Javadocs"  href="./myfaces-test20/apidocs/index.html"/>
+    </menu>
+
+    <menu ref="reports" inherit="top"/>
+
+    <menu name="Foundation" inherit="top">
+      <item name="ASF"            href="http://www.apache.org/" />
+      <item name="Sponsorship"    href="http://www.apache.org/foundation/sponsorship.html" />
+      <item name="Thanks"         href="http://www.apache.org/foundation/thanks.html" />
+    </menu>
+  </body>
+</project>

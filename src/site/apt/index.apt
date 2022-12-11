@@ -1,0 +1,129 @@
+ ------
+ Myfaces Test Framework
+ ------
+
+ ~~ Licensed to the Apache Software Foundation (ASF) under one
+ ~~ or more contributor license agreements.  See the NOTICE file
+ ~~ distributed with this work for additional information
+ ~~ regarding copyright ownership.  The ASF licenses this file
+ ~~ to you under the Apache License, Version 2.0 (the
+ ~~ "License"); you may not use this file except in compliance
+ ~~ with the License.  You may obtain a copy of the License at
+ ~~
+ ~~   http://www.apache.org/licenses/LICENSE-2.0
+ ~~
+ ~~ Unless required by applicable law or agreed to in writing,
+ ~~ software distributed under the License is distributed on an
+ ~~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ ~~ KIND, either express or implied.  See the License for the
+ ~~ specific language governing permissions and limitations
+ ~~ under the License.
+ 
+
+Myfaces Test Framework Project
+
+  Modern application development processes have embraced the idea of
+  <<unit testing>> as an integral step in creating high quality
+  software.  In the Java world, a popular framework for building and
+  executing such unit tests is the {{{http://junit.org}JUnit}}
+  framework.  It is straightforward for an application developer to
+  create a corresponding <<test case>> class for each class in the
+  application itself, and ensure that the tests contained in the test case
+  get executed as part of the normal application build process.
+
+  One of the advantages of unit testing is that a test case should focus
+  <<only>> on the methods of the class under test, in isolation from
+  related application classes, or APIs provided by any container that the
+  class under test might be installed into at runtime.  But, how do you
+  test an application class that has dependencies on such APIs (such as
+  depending on the Servlet API to provide an <<<HttpServletRequest>>>
+  object representing an incoming HTTP request)?
+
+  A popular answer to this dilemma is to utilize a library of
+  <<mock objects>> -- classes that implement and emulate the container
+  APIs, but still run in the isolated environment of a JUnit test case.
+  Myfaces provides mock object implementations for its own features, as
+  well as features of the underlying container (Servlet
+  and JavaServer Faces) environment.  In addition, convenient base classes
+  are provided to make it very easy to build your own test cases utilizing
+  these mock objects.  This library is used to create unit tests for Myfaces
+  components itself, but it is primarily focused on making it easy to
+  build unit tests for application classes such as
+  <<<ViewController>>>s.
+
+Provided Services
+
+  The Myfaces Test Framework provides mock object libraries, plus base
+  classes for creating your own JUnit <<<TestCase>>>s.
+
+  Mock objects are provided in package <<<org.apache.myfaces.test.mock>>>
+  for the following container APIs:
+  
+   * JavaServer Faces
+  
+   * Servlet
+
+  These mock object classes implement the majority of the functionality
+  defined by the container API Javadocs (although some methods currently
+  throw <<<UnsupportedOperationException>>>). In addition, many
+  of these classes support public methods, outside of the defined API,
+  for configuring the object in a test environment.  For example,
+  <<<MockServletContext>>> includes <<<addInitParameter()>>>
+  and <<<setDocumentRoot()>>> methods, to add context initialization
+  parameters to the set returned via <<<getInitParameter()>>> and
+  <<<getInitParameterNames()>>>, and to establish the base directory
+  for resolving servlet context resources, respectively.
+
+  The <<<org.apache.myfaces.test.base>>> package contains abstract
+  base classes that wire together instances of the various container API
+  mock objects, in a manner similar to the way they would become available
+  at runtime.  The following base classes are available:
+  
+   * <<<org.apache.myfaces.test.base.AbstractJsfTestCase>>> - Base class 
+   for unit tests that require Servlet and JavaServer Faces objects to 
+   be available in a junit 3 style.
+
+   * <<<org.apache.myfaces.test.base.AbstractViewControllerTestCase>>> - Extension of
+   <<<AbstractJsfTestCase>>> that also provides convenient
+   utility methods needed to test common scenarios in unit tests for
+   <<<ViewController>>> implementation classes in a junit 3 style.
+
+   * <<<org.apache.myfaces.test.base.junit4.AbstractJsfTestCase>>> - Base class 
+   for unit tests that require Servlet and JavaServer Faces objects to 
+   be available in a junit 4 style.
+
+   * <<<org.apache.myfaces.test.base.AbstractViewControllerTestCase>>> - Extension of
+   <<<AbstractJsfTestCase>>> that also provides convenient
+   utility methods needed to test common scenarios in unit tests for
+   <<<ViewController>>> implementation classes in a junit 4 style.
+
+   * <<<org.apache.myfaces.test.base.junit4.AbstractJsfConfigurableMockTestCase>>> - Base class 
+   for unit tests that require Servlet and JavaServer Faces objects to 
+   be available in a junit 4 style. It to allows override mock objects to use the 
+   "real" ones in cases where it is required to test specific parts of myfaces,
+   or create test cases that requires parts of a jsf implementation to work
+   (see on myfaces-impl 2.0.x base class org.apache.myfaces.view.facelets.FaceletTestCase)   
+  
+  If you use one of these base classes, the <<<setUp()>>> method
+  found there will initialize a set of <<<protected>>> instance
+  variables for the container-managed objects you might need to access.
+  The set of initialized variables includes (variable name and type):
+  
+   * <<<application>>> (<<<MockApplication>>>)
+  
+   * <<<config>>> (<<<MockServletConfig>>>)
+  
+   * <<<externalContext>>> (<<<MockExternalContext>>>)
+   
+   * <<<facesContext>>> (<<<MockFacesContext>>>)
+  
+   * <<<lifecycle>>> (<<<MockLifecycle>>>)
+  
+   * <<<request>>> (<<<MockHttpServletRequest>>>)
+  
+   * <<<response>>> (<<<MockHttpServletResonse>>>)
+  
+   * <<<servletContext>>> (<<<MockServletContext>>>)
+  
+   * <<<session>>> (<<<MockHttpSession>>>)
+  
